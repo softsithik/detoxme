@@ -191,7 +191,7 @@
   <div class="header">
     <div class="app-name">DetoxMe</div>
     <div class="doc-title">Privacy Policy</div>
-    <div class="meta">Effective date: April 27, 2026 &nbsp;·&nbsp; Last updated: April 27, 2026 &nbsp;·&nbsp; Version 1.0</div>
+    <div class="meta">Effective date: April 30, 2026 &nbsp;·&nbsp; Last updated: April 30, 2026 &nbsp;·&nbsp; Version 1.1</div>
   </div>
 
   <!-- 1. Overview -->
@@ -201,7 +201,7 @@
       <p>DetoxMe does not collect, transmit, or share any personal data with external servers, third parties, or advertisers. All data stays on your device.</p>
     </div>
     <p>
-      DetoxMe ("the App") is a one-time purchase Android application developed and maintained by Faazi IoT Solutions. The App helps users monitor and limit their time spent on selected social media applications. This Privacy Policy explains what data the App accesses, how it is used, and how it is stored.
+      DetoxMe ("the App") is an Android application developed and maintained by Faazi IoT Solutions. The App helps users monitor and limit their time spent on selected applications. This Privacy Policy explains what data the App accesses, how it is used, and how it is stored.
     </p>
     <p>
       By installing and using DetoxMe, you agree to the practices described in this policy.
@@ -215,55 +215,51 @@
       <p><strong>Developer:</strong> Faazi IoT Solutions</p>
       <p><strong>App name:</strong> DetoxMe</p>
       <p><strong>Contact email:</strong> <a href="mailto:faaziiotsolutions@gmail.com">faaziiotsolutions@gmail.com</a></p>
-      <p><strong>Purchase model:</strong> One-time purchase (no subscription, no in-app purchases)</p>
+      <p><strong>Purchase model:</strong> Free with optional premium features (In-App Purchases)</p>
     </div>
   </section>
 
   <!-- 3. Data Collected -->
   <section>
-    <h2>3. Data we collect and store</h2>
-    <p>DetoxMe stores the following data <strong>locally on your device only</strong> using Android Room (SQLite) database. This data never leaves your device.</p>
+    <h2>3. Data we access and store</h2>
+    <p>DetoxMe accesses and stores the following data <strong>locally on your device only</strong> using an Android Room (SQLite) database. This data never leaves your device.</p>
 
     <table>
       <thead>
         <tr>
           <th>Data type</th>
           <th>What it is</th>
-          <th>Why it is stored</th>
-          <th>Where it is stored</th>
+          <th>Why it is stored/accessed</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>App package names</strong></td>
-          <td>The internal identifier of apps you choose to monitor (e.g., <code>com.instagram.android</code>)</td>
-          <td>To know which apps to track and block when your time limit is reached</td>
-          <td>Local Room database on your device</td>
+          <td><strong>Installed Apps List</strong></td>
+          <td>The list of applications currently installed on your device.</td>
+          <td>To allow you to easily search for and select which specific apps you want to restrict during your detox sessions.</td>
         </tr>
         <tr>
-          <td><strong>Daily usage time</strong></td>
-          <td>The number of minutes/seconds you have used each selected app per day</td>
-          <td>To display your usage reports (daily, weekly, monthly) and trigger limits</td>
-          <td>Local Room database on your device</td>
+          <td><strong>Daily Usage Time</strong></td>
+          <td>The number of minutes/seconds you have used each selected app per day.</td>
+          <td>To display your usage reports and trigger blocks when limits are reached.</td>
         </tr>
         <tr>
-          <td><strong>Time limits set by user</strong></td>
-          <td>The daily screen time limits you configure per app</td>
-          <td>To enforce app blocking when your chosen limit is reached</td>
-          <td>Local Room database on your device</td>
+          <td><strong>Time Limits</strong></td>
+          <td>The daily screen time limits you configure per app.</td>
+          <td>To enforce app blocking when your chosen limit is reached.</td>
         </tr>
       </tbody>
     </table>
 
     <p>
-      We do <strong>not</strong> collect your name, email address, phone number, location, contacts, photos, payment details, device identifiers, or any other personal information.
+      We do <strong>not</strong> collect your name, email address, phone number, location, contacts, photos, payment details, device identifiers, or any other personal information. We never track what you do <em>inside</em> the apps you are monitoring.
     </p>
   </section>
 
   <!-- 4. Permissions -->
   <section>
     <h2>4. Permissions used</h2>
-    <p>DetoxMe requires the following Android permissions to function. Each permission is used solely for core app functionality.</p>
+    <p>DetoxMe requires the following Android permissions to function. Each permission is used solely for core app functionality and your privacy is respected.</p>
 
     <table>
       <thead>
@@ -275,31 +271,45 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Accessibility Service</strong></td>
+          <td><strong>Query All Packages (QUERY_ALL_PACKAGES)</strong></td>
           <td><span class="badge">Sensitive</span></td>
           <td>
-            Used to monitor which app is currently in the foreground and to block the selected app (by redirecting away from it) when your configured daily time limit is exceeded. The Accessibility Service does not read, record, or transmit any screen content, text, passwords, or personal data.
+            Allows DetoxMe to see the list of apps installed on your device. This is necessary so you can choose which apps to monitor and limit.
           </td>
         </tr>
         <tr>
-          <td><strong>Usage Stats (PACKAGE_USAGE_STATS)</strong></td>
+          <td><strong>Usage Access (PACKAGE_USAGE_STATS)</strong></td>
           <td><span class="badge">Sensitive</span></td>
           <td>
-            Used to read the daily screen time of the apps you have selected to monitor. This data is read locally and stored only on your device.
+            Allows us to securely track your screen time. We use this strictly to calculate how long you have been actively using the apps you chose to limit.
           </td>
         </tr>
         <tr>
-          <td><strong>Foreground Service</strong></td>
-          <td><span class="badge green">Normal</span></td>
+          <td><strong>Display Over Other Apps (SYSTEM_ALERT_WINDOW)</strong></td>
+          <td><span class="badge">Sensitive</span></td>
           <td>
-            Keeps the monitoring service running in the background so usage is tracked accurately even when the app is not open.
+            Allows our "Block Screen" to instantly pop up over distracting apps the exact moment your configured time limit is reached.
           </td>
         </tr>
         <tr>
-          <td><strong>Receive Boot Completed</strong></td>
+          <td><strong>Foreground Service (Special Use)</strong></td>
           <td><span class="badge green">Normal</span></td>
           <td>
-            Restarts the monitoring service automatically when your device is rebooted so your limits stay active.
+            Keeps our tracking timer running accurately in the background without your phone's battery saver shutting it down during an active detox session.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Notifications (POST_NOTIFICATIONS)</strong></td>
+          <td><span class="badge green">Normal</span></td>
+          <td>
+            Shows a persistent status bar icon while a detox is active, keeping you informed that your time limits are currently being enforced.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Billing</strong></td>
+          <td><span class="badge green">Normal</span></td>
+          <td>
+            Allows for secure in-app purchases via Google Play if you choose to upgrade to premium features.
           </td>
         </tr>
       </tbody>
@@ -307,7 +317,7 @@
 
     <div class="notice">
       <p>
-        <strong>Important note on Accessibility Service:</strong> The Accessibility Service in DetoxMe is used exclusively to detect the foreground app and block it when a time limit is reached. It does not capture, read, record, or transmit any text entered on screen, passwords, messages, or any other content from any app.
+        <strong>Important note on Sensitive Permissions:</strong> DetoxMe strictly adheres to Google Play's Developer Policies. The <em>Query All Packages</em> and <em>Usage Access</em> permissions are used entirely locally. We do not transmit your installed app inventory or your app usage habits over the internet.
       </p>
     </div>
   </section>
@@ -321,10 +331,9 @@
     <p>Specifically, DetoxMe does <strong>not</strong>:</p>
     <ul>
       <li>Send any data to external servers or the internet</li>
-      <li>Use Google Analytics, Firebase, or any analytics service</li>
+      <li>Use Google Analytics, Firebase, or any cloud analytics service</li>
       <li>Use any advertising network or display ads</li>
       <li>Integrate any social login or third-party authentication</li>
-      <li>Include any third-party SDKs that collect user data</li>
     </ul>
   </section>
 
@@ -332,15 +341,15 @@
   <section>
     <h2>6. Data retention and deletion</h2>
     <p>
-      All data stored by DetoxMe (selected app package names and usage times) resides in a local Room database on your Android device. The data is retained until you:
+      All data stored by DetoxMe resides in a local Room database on your Android device. The data is retained until you:
     </p>
     <ul>
       <li>Manually clear the app's data from Android Settings → Apps → DetoxMe → Clear Data</li>
       <li>Uninstall the App (all app data is deleted by Android automatically)</li>
-      <li>Remove a specific app from monitoring within DetoxMe (deletes that app's record)</li>
+      <li>Remove a specific app from monitoring within DetoxMe (deletes that app's local record)</li>
     </ul>
     <p>
-      We have no access to your data and cannot delete it on your behalf, as it is stored entirely on your device.
+      Because we do not have a server, we have no access to your data and cannot delete it on your behalf. You have total control over your data directly on your device.
     </p>
   </section>
 
@@ -356,10 +365,7 @@
   <section>
     <h2>8. Data security</h2>
     <p>
-      Since all data is stored locally on your device and never transmitted over a network, the security of your data is governed by your device's own security measures (screen lock, encryption, etc.). We recommend keeping your device updated and secured with a lock screen.
-    </p>
-    <p>
-      The App does not implement its own server-side security because no server is involved.
+      Since all data is stored locally on your device and never transmitted over a network, the security of your data is governed by your device's own security measures. We recommend keeping your device updated and secured with a screen lock.
     </p>
   </section>
 
@@ -367,32 +373,13 @@
   <section>
     <h2>9. Changes to this policy</h2>
     <p>
-      We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the App after any changes constitutes acceptance of the updated policy. For significant changes, we will update the App's Play Store listing description.
-    </p>
-    <p>
-      We encourage you to review this policy periodically.
+      We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the App after any changes constitutes acceptance of the updated policy.
     </p>
   </section>
 
-  <!-- 10. Your Rights -->
+  <!-- 10. Contact -->
   <section>
-    <h2>10. Your rights</h2>
-    <p>
-      Since DetoxMe stores data only locally on your device and we have no access to it, you have full control over your data at all times. You may:
-    </p>
-    <ul>
-      <li>View all stored data within the App itself</li>
-      <li>Delete individual app records from within the App</li>
-      <li>Delete all data by clearing app data or uninstalling the App</li>
-    </ul>
-    <p>
-      If you have any questions about your rights or this policy, please contact us at the address below.
-    </p>
-  </section>
-
-  <!-- 11. Contact -->
-  <section>
-    <h2>11. Contact us</h2>
+    <h2>10. Contact us</h2>
     <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the App, please contact:</p>
     <div class="contact-card">
       <p><strong>Faazi IoT Solutions</strong></p>
@@ -403,7 +390,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <p>DetoxMe &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Effective April 27, 2026</p>
+    <p>DetoxMe &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Effective April 30, 2026</p>
     <p style="margin-top:4px;">© 2026 Faazi IoT Solutions. All rights reserved.</p>
   </div>
 
